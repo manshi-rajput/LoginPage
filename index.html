@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url("./assets/backgroundImage.png") no-repeat center;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;     
+            justify-content: center; 
+        }
+        .container {
+            max-width: 700px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .left {
+            background: white;
+            padding: 40px;
+            flex: 1;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: #007d73;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .left h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .left h5 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .left p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form {
+            flex: 1.5;
+            padding: 40px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reset-link {
+            font-size: 12px;
+            color: #007d73;
+            text-decoration: none;
+        }
+
+        .btn {
+            width: 100%;
+            background: #007d73;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .version {
+            font-size: 10px;
+            color: gray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="logo.svg" alt="Company Logo" width="40" />
+            <h5>REVSYNC</h5>
+            <h2>Sign In</h2>
+            <p>Use your Business Account</p>
+            <div class="version">v0.0.1</div>
+        </div>
+        <div class="form">
+            <!-- Required Azure AD B2C container -->
+            <div id="api" class="api"></div>
+
+            <!-- Optional error message display -->
+            <div id="errorMessage" class="error" style="display:none;">Incorrect Credentials</div>
+
+            <div class="actions">
+                <a href="#" class="reset-link" id="forgotPassword">Reset Password</a>
+            </div>
+        </div>
+    </div>
+  <script>
+    window.onload = function () {
+        const apiSection = document.getElementById('api');
+        if (apiSection) {
+            apiSection.style.background = '#f7f7f7';
+            apiSection.style.borderRadius = '8px';
+            apiSection.style.padding = '20px';
+        }
+    }
+</script>
+  
+</body>
+
+</html>

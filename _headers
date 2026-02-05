@@ -1,0 +1,7 @@
+/*
+  Access-Control-Allow-Origin: https://sample009sample009.b2clogin.com
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+  X-Frame-Options: ALLOWALL
+  Content-Security-Policy: frame-ancestors https://sample009sample009.b2clogin.com
+
