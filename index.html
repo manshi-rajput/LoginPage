@@ -102,28 +102,39 @@
             margin-top: 20px;
         }
 
+        #api {
+            padding: 20px;
+        }
+
         #api input {
             width: 100%;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 10px 12px;
+            border-radius: 4px;
             border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
         }
 
-        /* #api input[type="email"] {
-            margin-bottom: 24px;
+        #api input:focus {
+            outline: 2px solid #007d73;
+            border-color: #007d73;
         }
-
-        #api input[type="password"] {
-            margin-bottom: 36px;
-        } */
 
         #api button {
-            width: 80%;
-            /* color: #006B5E; */
-            border-radius: 8px;
-            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            padding: 10px 12px;
             border: none;
             background: #006B5E;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        #api button:hover {
+            background: #005a50;
         }
 
         #api h1 {
@@ -133,10 +144,29 @@
         #api .entry-item {
             display: flex;
             flex-direction: column;
-            gap: 6px;           /* controls label ↔ input spacing */
-            margin-bottom: 16px;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
+        #api label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1f1f1f;
+        }
+
+        #api .buttons {
+            margin-top: 24px;
+        }
+
+        #api a {
+            color: #007d73;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        #api a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -166,7 +196,6 @@
             if (apiSection) {
                 apiSection.style.background = '#f7f7f7';
                 apiSection.style.borderRadius = '8px';
-               // apiSection.style.padding = '20px';
             }
         }
     </script>
