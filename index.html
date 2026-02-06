@@ -167,8 +167,9 @@
         #api .entry-item {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 20px;
+            gap: 6px;
+            margin-bottom: 24px;
+            position: relative;
         }
 
         #api label {
@@ -176,6 +177,31 @@
             font-weight: 600;
             color: #333333;
             letter-spacing: 0.2px;
+            margin-bottom: 0;
+        }
+
+        #api .error {
+            color: #d32f2f;
+            font-size: 12px;
+            margin-top: 4px;
+            display: block;
+            line-height: 1.4;
+        }
+
+        #api .entry-item .error.itemLevel {
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
+
+        #api input.error,
+        #api input[aria-invalid="true"] {
+            border-color: #d32f2f;
+        }
+
+        #api input.error:focus,
+        #api input[aria-invalid="true"]:focus {
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.1);
         }
 
         #api .buttons {
