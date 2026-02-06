@@ -294,25 +294,15 @@
             margin-top: 4px;
         }
 
-        #api a#forgotPassword {
-            display: none !important;
-        }
-
-        /* Custom Reset Password Link (outside #api) */
-        .actions {
-            margin-top: 16px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .reset-link {
+        #forgotPassword {
+            font-size: 12px;
+            color: #006B5E;
+            text-decoration: none;
+            margin-top: 12px;
             display: inline-block;
-            cursor: pointer;
-            position: relative;
-            z-index: 10;
         }
 
-        .reset-link:hover {
+        #forgotPassword:hover {
             text-decoration: underline;
         }
     </style>
@@ -333,9 +323,9 @@
             <!-- Optional error message display -->
             <div id="errorMessage" class="error" style="display:none;">Incorrect Credentials</div>
 
-            <div class="actions">
+            <!-- <div class="actions">
                 <a href="#" class="reset-link" id="forgotPassword">Reset Password</a>
-            </div>
+            </div> -->
         </div>
     </div>
     <script>
@@ -345,7 +335,7 @@
                 apiSection.style.background = '#f7f7f7';
                 apiSection.style.borderRadius = '8px';
             }
-            
+
         }
     </script>
 
