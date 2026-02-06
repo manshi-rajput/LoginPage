@@ -295,9 +295,28 @@
         }
 
         #api a#forgotPassword {
-            display: none !important;
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
         }
 
+        /* Custom Reset Password Link (outside #api) */
+        .actions {
+            margin-top: 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .reset-link {
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+
+        .reset-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -322,14 +341,37 @@
         </div>
     </div>
     <script>
+        function initResetLink() {
+            const customReset = document.getElementById("customReset");
+            const azureReset = document.getElementById("forgotPassword");
+
+            if (customReset && azureReset) {
+                customReset.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    azureReset.click(); //  Azure handler
+                });
+                return true;
+            }
+            return false;
+        }
+
+        // Azure injects content late → keep checking
+        const interval = setInterval(function () {
+            if (initResetLink()) {
+                clearInterval(interval);
+            }
+        }, 300);
+
+        // UI polish (safe)
         window.onload = function () {
             const apiSection = document.getElementById('api');
             if (apiSection) {
                 apiSection.style.background = '#f7f7f7';
                 apiSection.style.borderRadius = '8px';
             }
-        }
+        };
     </script>
+
 
 </body>
 
