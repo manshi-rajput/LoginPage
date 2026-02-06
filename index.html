@@ -293,6 +293,13 @@
         #api .entry-item .helpLink {
             margin-top: 4px;
         }
+
+        #forgotPassword,
+        a#forgotPassword,
+        a[data-name="forgotPassword"] {
+            display: none !important;
+        }
+
     </style>
 </head>
 
@@ -311,9 +318,9 @@
             <!-- Optional error message display -->
             <div id="errorMessage" class="error" style="display:none;">Incorrect Credentials</div>
 
-            <!-- <div class="actions">
+            <div class="actions">
                 <a href="#" class="reset-link" id="forgotPassword">Reset Password</a>
-            </div> -->
+            </div>
         </div>
     </div>
     <script>
