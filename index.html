@@ -295,9 +295,7 @@
         }
 
         #api a#forgotPassword {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
+            display: none !important;
         }
 
         /* Custom Reset Password Link (outside #api) */
@@ -336,42 +334,20 @@
             <div id="errorMessage" class="error" style="display:none;">Incorrect Credentials</div>
 
             <div class="actions">
-                <a href="#" class="reset-link" id="customReset">Reset Password</a>
+                <a href="#" class="reset-link" id="forgotPassword">Reset Password</a>
             </div>
         </div>
     </div>
     <script>
-        function initResetLink() {
-            const customReset = document.getElementById("customReset");
-            const azureReset = document.getElementById("forgotPassword");
-
-            if (customReset && azureReset) {
-                customReset.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    azureReset.click(); //  Azure handler
-                });
-                return true;
-            }
-            return false;
-        }
-
-        // Azure injects content late → keep checking
-        const interval = setInterval(function () {
-            if (initResetLink()) {
-                clearInterval(interval);
-            }
-        }, 300);
-
-        // UI polish (safe)
         window.onload = function () {
             const apiSection = document.getElementById('api');
             if (apiSection) {
                 apiSection.style.background = '#f7f7f7';
                 apiSection.style.borderRadius = '8px';
             }
-        };
+            
+        }
     </script>
-
 
 </body>
 
