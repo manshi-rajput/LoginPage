@@ -102,7 +102,7 @@
             margin-top: 20px;
         }
 
-        /* #api {
+        #api {
             padding: 20px;
         }
 
@@ -218,8 +218,8 @@
             text-decoration: underline;
         }
 
-         Forgot Password Page Styles */
-        /* #api .intro {
+        /* Forgot Password Page Styles */
+        #api .intro {
             font-size: 14px;
             color: #1f1f1f;
             margin-bottom: 20px;
@@ -298,41 +298,7 @@
         #api div[class*="buttons"] .helpLink {
             margin-top: 8px;
             margin-bottom: 4px;
-        }  */
-
-        /* COMMON */
-#api {
-  max-width: 520px;
-  margin: auto;
-}
-
-/* SIGN IN */
-body.signin-page .page-title {
-  content: "Sign in to your account";
-}
-
-body.signin-page .warehouse-bg {
-  filter: brightness(0.9);
-}
-
-/* FORGOT PASSWORD */
-body.forgot-password-page .page-title {
-  content: "Reset your password";
-}
-
-body.forgot-password-page .continue {
-  background-color: #006b5e;
-}
-
-/* RESET PASSWORD */
-body.reset-password-page .page-title {
-  content: "Create a new password";
-}
-
-body.reset-password-page .cancel {
-  display: none;
-}
-
+        }
 
         #forgotPassword {
             font-size: 12px;
@@ -345,6 +311,9 @@ body.reset-password-page .cancel {
         #forgotPassword:hover {
             text-decoration: underline;
         }
+
+        
+
     </style>
 </head>
 
@@ -368,7 +337,7 @@ body.reset-password-page .cancel {
             </div> -->
         </div>
     </div>
-    <!-- <script>
+    <script>
         window.onload = function () {
             const apiSection = document.getElementById('api');
             if (apiSection) {
@@ -377,31 +346,7 @@ body.reset-password-page .cancel {
             }
             
         }
-    </script> -->
-    <script>
-        window.addEventListener("load", function () {
-            const body = document.body;
-
-            if (document.getElementById("password")) {
-                body.classList.add("signin-page");
-            }
-
-            if (
-                document.getElementById("verificationCode") ||
-                document.querySelector('button[aria-label="Send verification code"]')
-            ) {
-                body.classList.add("forgot-password-page");
-            }
-
-            if (
-                document.getElementById("newPassword") &&
-                document.getElementById("reenterPassword")
-            ) {
-                body.classList.add("reset-password-page");
-            }
-        });
     </script>
-
 
 </body>
 
