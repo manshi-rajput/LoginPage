@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -334,22 +334,251 @@
             <div class="version">v0.0.1</div>
         </div>
         <div class="form">
-            <!-- Required Azure AD B2C container -->
+           
             <div id="api" class="api"></div>
-
-            <!-- Optional error message display -->
             <div id="errorMessage" class="error" style="display:none;">Incorrect Credentials</div>
 
-            <!-- <div class="actions">
-                <a href="#" class="reset-link" id="forgotPassword">Reset Password</a>
-            </div> -->
         </div>
     </div>
     <script>
-        // Azure AD B2C will inject content into #api div
-        // Additional customization can be added here if needed
+        
     </script>
 
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REVSYNC | Sign in</title>
+
+  <style>
+    /* ========== GLOBAL ========== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("https://exquisite-marzipan-45ed87.netlify.app/assets/bg.png")
+        no-repeat center;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 720px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.25);
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .left {
+      flex: 1;
+      padding: 40px;
+      background: #ffffff;
+    }
+
+    .left img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+
+    .left h5 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .left p {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .version {
+      font-size: 11px;
+      color: #888;
+      margin-top: 24px;
+    }
+
+    .form {
+      flex: 1.4;
+      padding: 40px;
+    }
+
+    /* ========== AZURE B2C CORE ========== */
+    #api {
+      background: transparent !important;
+      padding: 0;
+    }
+
+    #api h1 {
+      display: none;
+    }
+
+    #api h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #1f1f1f;
+    }
+
+    #api label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    #api .entry-item {
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    #api input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #c8c8c8;
+      font-size: 14px;
+      outline: none;
+    }
+
+    #api input:focus {
+      border-color: #006B5E;
+      box-shadow: 0 0 0 1px rgba(0,107,94,0.2);
+    }
+
+    #api .error {
+      color: #a4262c;
+      font-size: 12px;
+    }
+
+    /* ========== BUTTONS ========== */
+    #api .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    #api button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #api button#continue,
+    #api button[id*="continue"],
+    #api button.sendCode,
+    body.signin #api button[type="submit"] {
+      background: #006B5E;
+      color: #fff;
+    }
+
+    #api button#continue:hover,
+    #api button.sendCode:hover {
+      background: #005a50;
+    }
+
+    #api button#cancel,
+    #api button[id*="cancel"] {
+      background: transparent;
+      border: 1px solid #006B5E;
+      color: #006B5E;
+    }
+
+    #api button#cancel:hover {
+      background: #f0f8f7;
+    }
+
+    /* ========== LINKS ========== */
+    #api a {
+      font-size: 13px;
+      color: #006B5E;
+      text-decoration: none;
+    }
+
+    #api a:hover {
+      text-decoration: underline;
+    }
+
+    .helpLink {
+      font-size: 12px;
+      margin-top: 6px;
+      display: inline-block;
+    }
+
+    /* ========== PAGE MODES ========== */
+    body.forgot-password #api h2 {
+      display: none;
+    }
+
+    body.forgot-password #api .intro {
+      font-size: 14px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        max-width: 92%;
+      }
+    }
+  </style>
+</head>
+
+<body class="signin">
+
+  <div class="container">
+    <div class="left">
+      <img src="https://exquisite-marzipan-45ed87.netlify.app/logo.svg" />
+      <h5>REVSYNC</h5>
+      <p>Use your Business Account</p>
+      <div class="version">v0.0.1</div>
+    </div>
+
+    <div class="form">
+      <!-- Azure injects content here -->
+      <div id="api"></div>
+    </div>
+  </div>
+
+  <!-- ========== PAGE DETECTION SCRIPT ========== -->
+  <script>
+    function detectPage() {
+      const forgot =
+        document.getElementById("emailVerificationControl") ||
+        document.querySelector('[id*="email_verification"]');
+
+      if (forgot) {
+        document.body.classList.add("forgot-password");
+        document.body.classList.remove("signin");
+      } else {
+        document.body.classList.add("signin");
+        document.body.classList.remove("forgot-password");
+      }
+    }
+
+    window.addEventListener("load", detectPage);
+
+    const observer = new MutationObserver(detectPage);
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+
+</body>
 </html>
